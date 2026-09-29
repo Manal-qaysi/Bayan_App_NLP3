@@ -7,7 +7,7 @@
 
 - Artefact role: `Bayan Applied NLP`
 - Result label: `MEASURED`
-- Task: FILL_ME
+- Task: Multilingual topic text classification
 - Decision date: 2026-09-29T12:47:20.587378+00:00
 - Author: Manal
 
@@ -17,41 +17,52 @@
 
 | Constraint | TARGET | Why this matters |
 |---|---:|---|
-| p95 end-to-end latency | FILL_ME ms | FILL_ME |
-| minimum throughput | FILL_ME items/s | FILL_ME |
-| maximum quality tax | FILL_ME | FILL_ME |
-| target device | FILL_ME | FILL_ME |
+| p95 end-to-end latency |100 ms | Target responsive inference  |
+| minimum throughput | 20 items/s | Ensure sufficient CPU serving capacity |
+| maximum quality tax | 0.02 macro-F1 | Limit quality degradation after optimisation |
+| target device | CPU | Reproducible CPU deployment |
 
-- Commit/time proving budget existed before candidate: FILL_ME
+- Commit/time proving budget existed before candidate: 2026-09-29
 
 ## 3. Reproduction contract
 
 | Field | Value |
 |---|---|
-| Colab runtime/Python | FILL_ME |
+| Colab runtime/Python | Python 3.12.13 |
 | Device/provider | CPU |
-| CPU/GPU details | FILL_ME |
-| Library versions | FILL_ME |
-| Model ID/revision/hash | FILL_ME |
-| Preprocessing version | FILL_ME |
-| Label map version | FILL_ME |
-| Workload path/hash | FILL_ME |
-| Split | validation / frozen test: FILL_ME |
-| Examples + AR/EN counts | FILL_ME |
-| Length distribution | p50=FILL_ME, p95=FILL_ME, max=FILL_ME |
-| Batch size | 688 |
-| Padding/max length | FILL_ME |
-| Warm-up/repetitions | FILL_ME / FILL_ME |
-| Measured boundary | model-only / end-to-end: FILL_ME |
-| Memory method | process RSS observed peak / other: FILL_ME |
+| CPU/GPU details | Processor: 
+Machine: wasm32
+CPU count: 1 |
+| Library versions | torch = 2.11.0+cpu
+transformers = 5.15.1
+tokenizers = 0.22.2
+scikit-learn = 1.9.0
+onnx = NOT INSTALLED
+onnxruntime = NOT INSTALLED |
+| Model ID/revision/hash | distilbert/distilbert-base-multilingual-cased |
+| Preprocessing version | v1.0 |
+| Label map version | v1.0 |
+| Workload path/hash | data/sample/bayan_day2_classification.csv |
+| Split | validation / frozen test: test |
+| Examples + AR/EN counts | Total samples: 5
+Sample types: Counter({'Arabic': 3, 'English/Other': 2})
+Processed texts: 5
+Tokenized texts: 5 |
+| Length distribution | p50: 12.0,p95: 12.0,
+max: 12 |
+| Batch size | 4 |
+| Padding/max length |  Dynamic padding / MAX_LENGTH=64 |
+| Warm-up/repetitions |  10 / 30 |
+| Measured boundary | model-only / end-to-end: model-only |
+| Memory method | process RSS observed peak |
 
 ## 4. Controlled candidates
 
 | ID | Runtime/precision | Only intended change | Artefact hash | Size MiB |
 |---|---|---|---|---:|
-| A | PyTorch FP32 reference | baseline | FILL_ME | FILL_ME |
-| B | ONNX Runtime FP32 | runtime/export | FILL_ME | FILL_ME |
-| C | ONNX Runtime dynamic INT8 | weight quantisation | FILL_ME | FILL_ME |
+| A | PyTorch FP32 reference | baseline  |
+| B | ONNX Runtime FP32 | runtime/export  |
+| C | ONNX Runtime dynamic INT8 | weight quantisation  |
 
 ## 5. Parity
 
@@ -73,8 +84,8 @@
 
 ## 7. Quality results
 
-- Primary task metric: FILL_ME
-- Evaluation file/split: FILL_ME
+- Primary task metric: macro-F1
+- Evaluation file/split: frozen test
 
 | ID | Task quality | Quality tax = A − candidate | Small-sample/CI note |
 |---|---:|---:|---|
@@ -98,9 +109,12 @@
 
 ## 9. Reproduction commands
 
-```bash
-# FILL_ME: exact setup and benchmark commands without tokens or secrets
-```
+pip install onnx onnxruntime
+python benchmark.py
+
+python benchmark.py --model A
+python benchmark.py --model B
+python benchmark.py --model C
 
 ## 10. Integrity check
 
