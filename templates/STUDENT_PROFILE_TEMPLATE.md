@@ -10,17 +10,14 @@
 
 ## My contribution | مساهمتي
 
-المشروع فردي. اشرح ما بنيته وما تعلمته، واذكر المساعدة أو المصادر وفق سياسة النزاهة.
-
 تعلمت أساسيات معالجة اللغة الطبيعية وتطبيقاتها، مثل معالجة النصوص، التقطيع (Tokenization)، الـAttention والـTransformers، واستخدام نماذج مثل BERT في تحليل النصوص.
 ## One skill I can now demonstrate
 
-FILL_ME: مهارة واحدة + رابط دليل داخل المستودع.
 
+شرح وتنفيذ pipeline كامل من preprocessing إلى evaluation، مع فهم label alignment وsemantic retrieval وقياسات latency.
 ## One limitation I understand
 
-FILL_ME
-
+-
 ## Integrity declaration | إقرار النزاهة
 
 - [ ] أفهم كل كود وقرار أسلمه ويمكنني شرحه.
