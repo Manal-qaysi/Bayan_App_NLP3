@@ -1,6 +1,6 @@
 # PRESENTATION — Bayan | عرض بيان
 
-**GitHub username / معرف المتدرب:** FILL_ME
+**GitHub username / معرف المتدرب:** MANAL Qaysi
 
 ## 1. Problem and user | المشكلة والمستخدم
 FILL_ME: user, input, scope and non-goals / المستخدم والمدخل والنطاق والحدود.
