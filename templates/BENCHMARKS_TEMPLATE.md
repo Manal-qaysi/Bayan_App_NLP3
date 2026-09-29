@@ -30,31 +30,13 @@
 |---|---|
 | Colab runtime/Python | Python 3.12.13 |
 | Device/provider | CPU |
-| CPU/GPU details | Processor: 
-Machine: wasm32
-CPU count: 1 |
-| Library versions | torch = 2.11.0+cpu
-transformers = 5.15.1
-tokenizers = 0.22.2
-scikit-learn = 1.9.0
-onnx = NOT INSTALLED
-onnxruntime = NOT INSTALLED |
-| Model ID/revision/hash | distilbert/distilbert-base-multilingual-cased |
+| CPU/GPU details | Processor: Machine: wasm32CPU count: 1 |
+| Library versions | torch = 2.11.0+cpu transformers = 5.15.1 tokenizers = 0.22.2 scikit learn = 1.9.0 onnx = NOT INSTALLED onnxruntime = NOT INSTALLED || Model ID/revision/hash | distilbert/distilbert-base-multilingual-cased |
 | Preprocessing version | v1.0 |
 | Label map version | v1.0 |
 | Workload path/hash | data/sample/bayan_day2_classification.csv |
 | Split | validation / frozen test: test |
-| Examples + AR/EN counts | Total samples: 5
-Sample types: Counter({'Arabic': 3, 'English/Other': 2})
-Processed texts: 5
-Tokenized texts: 5 |
-| Length distribution | p50: 12.0,p95: 12.0,
-max: 12 |
-| Batch size | 4 |
-| Padding/max length |  Dynamic padding / MAX_LENGTH=64 |
-| Warm-up/repetitions |  10 / 30 |
-| Measured boundary | model-only / end-to-end: model-only |
-| Memory method | process RSS observed peak |
+| Examples + AR/EN counts | Total samples: 5 Sample types: Counter({'Arabic': 3, 'English/Other': 2}) Processed texts: 5 Tokenized texts: 5 || Length distribution | p50: 12.0,p95: 12.0, max: 12 || Batch size | 4 || Padding/max length |  Dynamic padding / MAX_LENGTH=64 || Warm-up/repetitions |  10 / 30 || Measured boundary | model-only / end-to-end: model-only || Memory method | process RSS observed peak |
 
 ## 4. Controlled candidates
 
